@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Titre"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Inscription PFE"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="350dp"
+        android:layout_height="442dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="104dp">
+
+        <EditText
+            android:id="@+id/Nom"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:hint="Nome"></EditText>
+
+        <EditText
+            android:id="@+id/Prenom"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:hint="Nome"></EditText>
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:hint="Nome"></EditText>
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:hint="Nome"></EditText>
+
+        <EditText
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:hint="Nome"></EditText>
+
+        <EditText
+            android:id="@+id/Mdp"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:hint="Nome"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="237dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.876">
+
+        <Button
+            android:id="@+id/btnValider"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:text="VALIDER"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="572dp"></Button>
+
+        <Button
+            android:id="@+id/btnAnnule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANNULER"
+            tools:layout_editor_absoluteX="222dp"
+            tools:layout_editor_absoluteY="572dp"></Button>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
