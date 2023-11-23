@@ -3,7 +3,9 @@ package com.example.sqllite
 import android.app.AlertDialog
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        dbhelper = EtudiantDBHelper(applicationContext)
+       dbhelper = EtudiantDBHelper(applicationContext)
         valide_btn = findViewById(R.id.btnValider)
         annulerbtn = findViewById(R.id.btnAnnule)
 
@@ -35,8 +37,9 @@ class MainActivity : AppCompatActivity() {
            login = findViewById(R.id.Login) ;
              mod_de_pass = findViewById(R.id.Mdp);
 
-if (!nom.text.isBlank()  && prenom.text.isBlank() && tel.text.isBlank() && email.text.isBlank() &&  login.text.isBlank() && mod_de_pass.text.isBlank() )
+if (!nom.text.isEmpty()  && !prenom.text.isBlank() && !tel.text.isBlank() && !email.text.isBlank() &&  !login.text.isBlank() && !mod_de_pass.text.isBlank() )
 {
+    Log.i("yes" , "here we go ")
 val values:ContentValues = ContentValues() ;
     values.put(EtudiantBC.EtudiantEntry.COLUMN_NAME_NOM,
         nom.text.toString());
@@ -49,10 +52,12 @@ val values:ContentValues = ContentValues() ;
     val mDbHelper = EtudiantDBHelper(applicationContext)
     val db = mDbHelper.writableDatabase
     var newRowId: Long
-    newRowId = db.insert(EtudiantDBHelper.DATABASE_NAME , null , values)
+    newRowId = db.insert(EtudiantBC.EtudiantEntry.TABLE_NAME , null , values)
+    val intent = Intent(this, ListEtudiant::class.java)
+    startActivity(intent)
 }
             else {
-
+    Log.i("yes" , "here we don't go" ) ;
 
     val builder = AlertDialog.Builder(this)
     builder.setTitle("Attention")

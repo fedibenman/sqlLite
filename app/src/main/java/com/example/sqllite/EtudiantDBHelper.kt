@@ -10,19 +10,21 @@ import com.example.sqllite.EtudiantBC.EtudiantEntry
 
 
 class EtudiantDBHelper(context:Context) :SQLiteOpenHelper(context , DATABASE_NAME , null , DATABASE_VERSION) {
-    val db  = writableDatabase
 
-    override fun onCreate(p0: SQLiteDatabase?) {
+    public val db = writableDatabase
+    override fun onCreate(db: SQLiteDatabase) {
         Log.i("refrence" ,SQL_CREATE_ENTRIES)
-        db.execSQL(SQL_CREATE_ENTRIES)
+
+            db.execSQL(SQL_CREATE_ENTRIES)
+
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL(SQL_DELETE_ENTRIES)
         onCreate(db)
     }
 
-    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
        onUpgrade(db , oldVersion ,newVersion)
 
     }
@@ -34,11 +36,12 @@ class EtudiantDBHelper(context:Context) :SQLiteOpenHelper(context , DATABASE_NAM
         private const val TEXT_TYPE = " TEXT"
         private const val INT_TYPE = " INTEGER"
         private const val COMMA_SEP = ","
-        const val DATABASE_NAME = "your_database.db"
-        const val DATABASE_VERSION = 1
-        const val SQL_CREATE_ENTRIES :String =
+        const val DATABASE_NAME = "PFE.db"
+        public val DATABASE_VERSION = 1
+        public val SQL_CREATE_ENTRIES :String =
             "CREATE TABLE " + EtudiantBC.EtudiantEntry.TABLE_NAME + "(" +
-                    EtudiantBC.EtudiantEntry.COLUMN_NAME_NOM + TEXT_TYPE + " PRIMARY KEY ," +
+                    "_id INT  PRIMARY KEY,"+
+                    EtudiantBC.EtudiantEntry.COLUMN_NAME_NOM + TEXT_TYPE  +" , "+
                     EtudiantBC.EtudiantEntry.COLUMN_NAME_EMAIL + TEXT_TYPE +" , "+
                     EtudiantBC.EtudiantEntry.COLUMN_NAME_LOGIN + TEXT_TYPE +" , "+
                     EtudiantBC.EtudiantEntry.COLUMN_NAME_MDP + TEXT_TYPE +" , "+
